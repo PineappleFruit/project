@@ -1,0 +1,94 @@
+.box {
+    width: 800px;
+    height: 510px;
+    border: 1px solid #888;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.left {
+    width: 200px;
+    background: #e3e3e3;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.left img{
+    height: 107px;
+    width: 181px;
+    border: 1px dashed #bcbcbc;
+    border-radius: 10px;
+}
+.left ul,.content ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    cursor: pointer;
+    text-align: center;
+    background: #f3f3f3;
+}
+.arrow{
+    position: absolute;
+    height: 28px;
+    width: 100%;
+    background: #e2e2e2;
+    text-align: center;
+    line-height: 28px;
+    z-index: 100;
+    cursor: pointer;
+}
+.arrow i{
+    background-size: 28px 28px;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+}
+.arrowFoot{
+    bottom: 0;
+}
+.arrowTop i{
+    background-image: url("../images/top.svg");
+}
+.arrowFoot i{
+    background-image: url("../images/bottom.svg");
+}
+.content{
+    float: right;
+    width: 550px;
+    padding: 10px 20px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.content ul{
+    position: absolute;
+    bottom: 34px;
+    padding: 0;
+    height: 124px;
+    overflow: auto;
+    background: #f3f3f3;
+    border-radius: 5px;
+}
+.content img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.content li{
+    display: inline-block;
+    margin: 10px;
+}
+.Txt{
+    max-height: 348px;
+    overflow: auto;
+    font-size: 14px;
+    color: #3d3d3d;
+}
+.contTxt{
+    position: relative;
+    height: 515px;
+}
+.boxContent{
+    position: relative;
+    padding: 30px 0;
+}
