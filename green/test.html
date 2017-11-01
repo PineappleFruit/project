@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动轮播</title>
+    <style>
+        /*.container{width: 100%;margin: 0 auto;position: relative;overflow: hidden;height: 500px}*/
+        .wrap{width: 658px;height: 500px;margin: 0 auto;overflow: hidden;position: relative}
+        ul{list-style: none;float: left;padding: 0;margin: 0;width: 3000px;position: relative;height: 100%}
+        .ul1{position: relative}
+        ul li{float: left;margin-right: 10px}
+        .prev,.next{position: absolute;z-index: 100;color: red;font-size: 30px;top:40%;cursor: pointer}
+        .next{right: 0;}
+        ol{position: absolute;bottom: 0}
+        ol li{width: 10px;height: 10px;background: grey;margin-right: 20px;float: left;list-style: none;
+            z-index: 100;cursor: pointer}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="wrap">
+            <ul class="ul1">
+                <!--<li><img src="img/tu4.jpg" alt=""></li>-->
+                <li><img src="img/index-active.png" alt=""></li>
+                <li><img src="img/index-active.png" alt=""></li>
+                <li><img src="img/index-active.png" alt=""></li>
+                <li><img src="img/index-active.png" alt=""></li>
+                <!--<li><img src="img/tu1.jpg" alt=""></li>-->
+            </ul>
+
+            <div class="prev"> < </div>
+            <div class="next"> > </div>
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.0.js"></script>
+    <script>
+        $(function () {
+            var $oUl = $(".ul1").eq(0);
+            var last_li = $oUl.find("li").eq(0).clone();
+            $oUl.append(last_li);
+            var li_width = $oUl.find("li").outerWidth(true);
+            var li_length = $oUl.find("li").length;
+            $('.ul1').width(li_length*li_width);
+            var $oli =  $("ol>li");
+            var timer;
+            var num = 0;
+            timer = setInterval(next_course,2000);
+//            console.log($oUl);
+            $(".next").click(next_course);
+            $(".prev").click(prev_course);
+            $(".wrap").hover(function () {
+               clearInterval(timer);
+            },function () {
+                clearInterval(timer);
+                timer = setInterval(next_course,2000)
+            });
+            function next_course() {
+//                console.log(num);
+                if(!$oUl.is(":animated")){
+                    num++;
+                    if(num < li_length){
+                        $oUl.animate({left:-num*li_width},600)
+                    }else {
+//                        num=0;
+                        $oUl.css("left",0);
+                        num = 1;
+                        $oUl.animate({left:-li_width},600)
+                    }
+                }
+            }
+            function prev_course() {
+                console.log(num);
+                if(!$oUl.is(":animated")){
+                    if(num > 0){
+                        num--;
+                        $oUl.animate({left:-num*li_width},600)
+                    }else {
+                        $oUl.css("left",-(li_length-1)*li_width);
+                        num = li_length - 2;
+                        $oUl.animate({left:-(li_length-2)*li_width},600)
+                    }
+                }
+                console.log(num);
+            }
+            console.log($oli);
+            $oli.each(function (index) {
+                $(this).click(function () {
+                    console.log($(this).index());
+                    var index = $(this).index();
+                    $oUl.animate({left:-index*li_width},600)
+                })
+            })
+        });
+    </script>
+
+</body>
+</html>
