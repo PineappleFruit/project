@@ -1,0 +1,203 @@
+{extend name="../home/common/base" /}
+{block name="body"}
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="css/mian.css" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
+		<script type="text/javascript" src="js/html-size-calculation.js" ></script>
+		<script type="text/javascript" src="js/jquery.2.1.4.min.js" ></script>
+		<script type="text/javascript" src="js/doT.min.js" ></script>
+	</head>
+	<body class="bgf4">-->
+		<div class="box">
+			<div class="bg-blue clear list"></div>
+			<div class="ub ub-pj fz26 listNative  plr25 ">
+				<p class="active">正常运行 <span></span></p>
+				<p>待机设备 <span></span></p>
+				<p>异常警告<span></span></	p>
+				<p>保养到期<span></span></p>
+			</div>
+
+            <div class="listBox">
+				
+			</div>
+			<div class="tip"></div>
+			<div class="overhide fz30 tx-c">未获取符合条件</div>
+			<p class="hide" style="display: none;">{$user}</p>
+                            {include file='../home/common/footer' /}
+		</div>
+	<script id="evaluationtmpl" type="text/x-dot-template">
+
+		{{ for(var prop in it) { }}
+
+			<div class="mt40 plr25">
+                <a href="http://kyj.v2.derenhe.com/index.php/home/plat/detailed/aprusid/{{= it[prop]["aprusid"] }}.html">
+                    <div class="bgff deviceList plr25 deviceBd">
+                        <div class="ub ub-pac ptb20 bb">
+                            <p class="ub-f1 fz26 c-blue">HN-185(HN180170539)</p>
+                            <span class="fz26 c49">压缩机</span>
+                        </div>
+                        <div class="pb20">
+                            <div class="ub ub-ac ub-te mt10 ptb10">
+                                <i class="iconfont icon-information i-blue"></i>
+                                <p class="fz24 c49 plr10 ub-te">彭惠林·白鹤滩·水垫塘固结灌浆·二号机611</p>
+                            </div>
+                            <div class="ub">
+                                <div class="ub-f1 ub  ub-ver">
+                                    <div class="ub ub-ac ub-te ptb10">
+                                        <i class="icon icon-touxiang i-blue"></i>
+                                        <p class="fz24 c81 plr10">彭惠林</p>
+                                    </div>
+                                    <div class="ub ub-ac ptb6">
+                                        <div class="iconBox statusBox ub ub-pac">
+                                            <span></span>
+                                        </div>
+                                        <p class="fz24 c49 plr10">状态</p>
+                                    </div>
+                                </div>
+                                <div class="ub-f1 ub ub-ver">
+                                    <div class="ub ub-ac ub-te ptb10">
+                                        <i class="iconfont icon-diqu i-blue"></i>
+                                        <p class="fz24 c81 plr10">成都</p>
+                                    </div>
+                                    <div class="ub ub-ac ptb6">
+                                        <div class="iconBox policeBox ub ub-pac">
+                                            <span></span>
+                                        </div>
+                                        <p class="fz24 c49 plr10">报警</p>
+                                    </div>
+                                </div>
+                                <div class="ub-f1 ub  ub-ver">
+                                    <div class="ub ub-pac ub-te ptb10">
+                                        <i class="iconfont icon-id i-blue"></i>
+                                        <p class="fz24 c81 plr10">{{= it[prop]["aprusid"] }}</p>
+                                    </div>
+                                    <div class="ub ub-ac ptb6">
+                                        <div class="iconBox keepBox ub ub-pac">
+                                            <span></span>
+                                        </div>
+                                        <p class="fz24 c49 plr10">保养</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+		{{ } }}
+		
+	</script>
+	<script type="text/javascript">
+		$(function(){
+			getData();
+		});
+		var moreDate;
+		var test;
+		var openUp,total,listLength;
+		var num = 1;
+//		page
+		var native = 1;
+		$(".listNative p").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			num = 1;
+			native = $(this).index() + 1;	
+			console.log(native);
+			getData();
+		})
+//		下拉
+		
+
+//		function Up(openUp){
+				 $(".box").on("touchstart", function(e) {
+	//		    e.preventDefault();
+			    startX = e.originalEvent.changedTouches[0].pageX,
+			    startY = e.originalEvent.changedTouches[0].pageY;
+			});
+			$(".box").on("touchend", function(e) {
+	//		    e.preventDefault();
+			    moveEndX = e.originalEvent.changedTouches[0].pageX,
+			    moveEndY = e.originalEvent.changedTouches[0].pageY;
+			    test = ((moveEndY - startY) < -10);
+//				console.log(moreDate);
+				getHeight();
+				listLength = $(".deviceList").length;
+				if(listLength >= total){	
+					openUp = false;
+//							return false;
+				}else{
+					openUp = true;
+//							Up(openUp);
+				}
+//				console.log(total)
+//				console.log(moreDate + 'moreDate');
+//				console.log(test +"test");
+//				console.log(openUp + "openUp")
+				if(moreDate && test && openUp){
+					setTimeout(function(){
+						num ++;
+						getData(true);
+					},3000)
+				}
+			});
+//		}
+		
+//		获取数据
+		function getData(select){
+			var user = "{$user}";
+			var data = {"page":num,"type":native,"user":user}
+			var url = "http://kyj.v2.derenhe.com/index.php/data/WebGet/lists.html";
+			console.log(num)
+			$.post(url,data,function(res){
+				console.log(res);
+				total = res.total || 0;
+				delete res.total;
+				var  dataEval  =  res;
+				var  evalText  =  doT.template($("#evaluationtmpl").text());
+				if(select){
+					$(".listBox").append(evalText(dataEval));
+					console.log(JSON.stringify(res));
+				}else{
+					if(res != "未获取符合条件"){		
+						$(".listBox").html(evalText(dataEval))
+						$(".overhide").css("display","none");
+						listLength = $(".deviceList").length;
+						getHeight();
+						return false;
+//						showData(total);
+					}else{
+						$(".listBox").text(" ")
+						$(".overhide").css("display","block");
+						getHeight();
+						return false;
+					}
+					
+				}
+							
+			})
+		}
+		//获取高度
+		function getHeight(){
+			var winPos = $(window).scrollTop();
+			var se = $(window).height();
+			var topHeight = $(".tip").offset().top;
+			var height = topHeight -  $(window).scrollTop();
+//			alert("se"+se + "height"+ height)
+//			alert(height - se);
+			if(height - se > 0){
+				moreDate = false;
+				return false;
+			}else{
+				moreDate = true;
+			}
+			
+		}
+                       
+	</script>
+{/block}
+<!--</html>-->
