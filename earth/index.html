@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/main.css" />
+		<link href="http://at.alicdn.com/t/font_521289_78bqvg6kn5wpcik9.css" rel="stylesheet"/>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/carrot.js" ></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=sIGbSgP9UziFAZyNXUKlYDGFVjFNZ1l6"></script>
+		<script type="text/javascript" src="js/template-native.js" ></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-top bg-blue"></div>
+			<div class="header-banner clear" style="background-image: url(images/header-banner.png);">
+				<div class="warp">
+					<div class="fl clear pt45 header-title">
+						<a href="">
+							<div class="header-log">
+								<img src="images/logo.png" alt="" />
+							</div>
+						</a>
+					</div>
+					<div class="fr clear pt45">
+						<p class="tx-r">
+							<a href="javascript:void(0);" class="c-blue2 fz14 pr20" onclick="SetHome(this,'http://www.ecmoban.com');">设为首页</a>
+							<span class="c-blue2">|</span>
+							<a href="javascript:void(0);" class="c-blue2 fz14 pl20" onclick="AddFavorite('测试','http://www.jb51.net')">加入收藏</a>
+						</p>
+						<table border="0" cellpadding="0" cellspacing="0" class="mt10 header-search" width="100%">
+					        <tbody>
+					        	<tr>
+						          <td><input type="text" name="query" value="" class="fz16 c66" placeholder="请输入搜索关键字..."></td>
+						          <td><i class="iconfont icon-sousuo cff tx-c"></i></td>
+						        </tr> 
+					      	</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="bg-blue header-native">
+				<div class="warp">
+					<ul class="cff tx-c clear fz16 header-ul">
+						<li class="bg-blue2 header-ul-li"><a href="#" class="cff">首页</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">机构简介</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">工作动态</a></li>
+						<li class="header-ul-li">
+							<a href="#" class="cff">公告公示</a>
+							<ul class="bg-blue2 more">
+								<li><a href="" class="cff">综合信息</a></li>
+								<li><a href="" class="cff">综合信息</a></li>
+								<li><a href="" class="cff">综合信息</a></li>
+							</ul>
+						</li>
+						<li class="header-ul-li"><a href="#" class="cff">政务公开</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">办事指南</a></li>
+						<li class="header-ul-li" ><a href="#" class="cff">政策法规</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">应急管理</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">党的建设</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">下载中心</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">学习园地</a></li>
+						<li class="header-ul-li"><a href="#" class="cff">建言献策</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--coures begin-->
+		<div class="index-coures">
+			<!--<div class="p10 bgff index-course content-box">-->
+				<div class="boxContent">
+	                <ul>
+	                    <li><img src="images/index-banner.jpg"></li>
+	                    <li><img src="images/index-banner.jpg"></li>
+	                    <li><img src="images/index-banner.jpg"></li>
+	                </ul>
+	            </div>
+	            <ol class="course-page tx-c">
+	                <li class="active"><span class="di-vm"></span></li>
+	                <li><span class="di-vm"></span></li>
+	                <li><span class="di-vm"></span></li>
+	            </ol>
+			<!--</div>-->
+		</div>
+		<!--coures end-->
+		<!--today news-->
+		<div class="today-news bgf4 bb">
+			<div class="warp">
+				<div class="fl mt20 today-title">
+					<div class="fz18 cff today-banner pl10" style="background-image: -webkit-image-set(url(images/today-news.png) 1x, url(images/today-news.svg) 2x);">今日头条</div>
+					<a href="#" class="fz18 c-blue plr10">2016年部门预算及“三公”经费信息公开情况</a>
+				</div>
+				<div class="fr fz18 todat-info">
+					<i class="iconfont icon-riqi c-blue"></i>
+					<span class="data">2017-11-23</span>
+					<span class="data-time">周三</span>
+					<i class="iconfont icon-diqu c-blue"></i>
+					<span class="location">凯里</span>
+					<i class="iconfont icon-wendu c-blue"></i>
+					<span class="temp">9°C~6°C</span>
+				</div>
+			</div>
+		</div>
+		<!--today news end-->
+		<!--news-->
+		<div class="news warp clear">
+			<ul class="new-list fl clear">
+				<li class="bg-blue cff new-bob active">
+					<div class=" pl20 pt25">
+						<i class="iconfont icon-gongzuodongtai pr10"></i>
+						<div class="di-vm lh14">
+							<p class="fz16 p-ellipsis">工作动态</p>
+							<p class="fz14 new-list-txt p-ellipsis">了解最新工作内容</p>
+						</div>	
+					</div>
+					<span></span>
+				</li>				
+				<li class="bg-blue cff new-bob new-bot">
+					<div class=" pl20 pt25">
+						<i class="iconfont icon-hot pr10"></i>
+						<div class="di-vm lh14">
+							<p class="fz16 p-ellipsis">热点关注</p>
+							<p class="fz14 new-list-txt p-ellipsis">最新政务动态</p>
+						</div>
+					</div>
+					<span></span>
+				</li>
+				<li class="bg-blue cff new-bot new-bob">
+					<div class="pl20 pt25">
+						<i class="iconfont icon-notice-copy pr10"></i>
+						<div class="di-vm lh14">
+							<p class="fz16 p-ellipsis">公告公示</p>
+							<p class="fz14 new-list-txt p-ellipsis">了解最新公告信息</p>
+						</div>
+					</div>
+					<span></span>
+				</li>
+				<li class="bg-blue cff new-bot">
+					<div class="pl20 pt25">
+						<i class="iconfont icon-grade-alt pr10"></i>
+						<div class="di-vm lh14">
+							<p class="fz16 p-ellipsis">重大活动</p>
+							<p class="fz14 new-list-txt p-ellipsis">了解最新活动</p>
+						</div>
+					</div>
+					<span></span>
+				</li>
+			</ul>
+			<div class="dib new-img-box">
+				<ul class="dib new-img ">
+					<li>
+						<a href="">
+							<img src="images/index-info.jpg" alt="" />
+							<p class="cff plr25 fz14 p-ellipsis">推进“两学一做”学习教育常态化制度既“铸魂行动”部署会</p>
+						</a>
+					</li>
+					<li>
+						<a href=""><img src="images/index-info.jpg" alt="" /></a>
+						<p class="cff plr25 fz14 p-ellipsis">推进“两学一做”学习教育常态化制度既“铸魂行动”部署会</p>
+					</li>
+					<li>
+						<a href=""><img src="images/index-info.jpg" alt="" /></a>
+						<p class="cff plr25 fz14 p-ellipsis">推进“两学一做”学习教育常态化制度既“铸魂行动”部署会</p>
+					</li>
+				</ul>
+			</div>
+			<div class="fr new-info">
+				<div class="pb10">
+					<div >
+						<span class="new-info-title active tx-c mr5">综合信息</span>
+						<span class="new-info-title tx-c mr5">出让公告</span>
+						<span class="new-info-title tx-c mr5">转让公告</span>
+						<span class="new-info-title tx-c">成交公告</span>
+					</div>
+					<div class="new-info-box active">
+						<p class="fz14 c4 0 tx-c p-ellipsis">关于凯里经济开发区1</p>
+						<p class="fz18 c40 tx-c ptb10 p-ellipsis">铜鼓石材有限责任公司失效公告</p>
+						<div class="bsd pb10">
+							<p class="fz14 c8e p-ellipsis di-vm new-info-txt">根据《矿产资源开采登记管理办法》（中华人民共和国国务..</p>
+							<a href="#" class="fz14 c-blue">[详情]</a>
+						</div>
+						<ul class="new-info-cont pt10">
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;不动产遗失补证公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于收回贵州凯里开元城市投资开发有限责任公司国...</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>凯里经济开发区国土资源分局公开服务承诺书</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>不动产统一登记的公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于凯里经济开发区铜鼓石材有限责任公司失效公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;土地登记审核公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+						</ul>
+					</div>
+					<div class="new-info-box">
+						<p class="fz14 c40 tx-c p-ellipsis">关于凯里经济开发区2</p>
+						<p class="fz18 c40 tx-c ptb10 p-ellipsis">铜鼓石材有限责任公司失效公告</p>
+						<div class="bsd pb10">
+							<p class="fz14 c8e p-ellipsis di-vm new-info-txt">根据《矿产资源开采登记管理办法》（中华人民共和国国务..</p>
+							<a href="#" class="fz14 c-blue">[详情]</a>
+						</div>
+						<ul class="new-info-cont pt10">
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;不动产遗失补证公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于收回贵州凯里开元城市投资开发有限责任公司国...</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>凯里经济开发区国土资源分局公开服务承诺书</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>不动产统一登记的公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于凯里经济开发区铜鼓石材有限责任公司失效公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;土地登记审核公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+						</ul>
+					</div>
+					<div class="new-info-box">
+						<p class="fz14 c40 tx-c p-ellipsis">关于凯里经济开发区3</p>
+						<p class="fz18 c40 tx-c ptb10 p-ellipsis">铜鼓石材有限责任公司失效公告</p>
+						<div class="bsd pb10">
+							<p class="fz14 c8e p-ellipsis di-vm new-info-txt">根据《矿产资源开采登记管理办法》（中华人民共和国国务..</p>
+							<a href="#" class="fz14 c-blue">[详情]</a>
+						</div>
+						<ul class="new-info-cont pt10">
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;不动产遗失补证公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于收回贵州凯里开元城市投资开发有限责任公司国...</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>凯里经济开发区国土资源分局公开服务承诺书</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>不动产统一登记的公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于凯里经济开发区铜鼓石材有限责任公司失效公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;土地登记审核公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+						</ul>
+					</div>
+					<div class="new-info-box">
+						<p class="fz14 c40 tx-c p-ellipsis">关于凯里经济开发区4</p>
+						<p class="fz18 c40 tx-c ptb10 p-ellipsis">铜鼓石材有限责任公司失效公告</p>
+						<div class="bsd pb10">
+							<p class="fz14 c8e p-ellipsis di-vm new-info-txt">根据《矿产资源开采登记管理办法》（中华人民共和国国务..</p>
+							<a href="#" class="fz14 c-blue">[详情]</a>
+						</div>
+						<ul class="new-info-cont pt10">
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;不动产遗失补证公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于收回贵州凯里开元城市投资开发有限责任公司国...</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>凯里经济开发区国土资源分局公开服务承诺书</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;<span class="c-orange">【图】</span>不动产统一登记的公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;关于凯里经济开发区铜鼓石材有限责任公司失效公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+							<li>
+								<a href="#" class="p-ellipsis di-vm fz14 c59">&gt;土地登记审核公告</a>
+								<span class="fr fz14 c8e">03-14</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--news end-->
+		<!--index-list-->
+		<div class="warp">
+			<ul class="mt25 mb5">
+				<li class="di-vm index-list mr15">
+					<a href="">
+						<i class="iconfont icon-xinxiang di-vm tx-c cff" style="background-image: url(images/index-list-bg.png);"></i>
+						<div class="di-vm">
+							<p class="p-ellipsis fz18 c40">领导信箱</p>
+							<p class="p-ellipsis fz12 index-eng">Leader mailbox</p>
+						</div>
+					</a>
+				</li>
+				<li class="di-vm index-list mr15">
+					<a href="">
+						<i class="iconfont icon-liuyan di-vm tx-c cff" style="background-image: url(images/index-list-bg.png);"></i>
+						<div class="di-vm">
+							<p class="p-ellipsis fz18 c40">公众留言</p>
+							<p class="p-ellipsis fz12 index-eng">Public message</p>
+						</div>
+					</a>
+				</li>
+				<li class="di-vm index-list mr15">
+					<a href="">
+						<i class="iconfont icon-106 di-vm tx-c cff" style="background-image: url(images/index-list-bg.png);"></i>
+						<div class="di-vm">
+							<p class="p-ellipsis fz18 c40">投诉举报</p>
+							<p class="p-ellipsis fz12 index-eng">Complaints Report</p>
+						</div>
+					</a>
+				</li>
+				<li class="di-vm index-list mr15">
+					<a href="">
+						<i class="iconfont icon-tousujianyi di-vm tx-c cff" style="background-image: url(images/index-list-bg.png);"></i>
+						<div class="di-vm">
+							<p class="p-ellipsis fz18 c40">建言献策</p>
+							<p class="p-ellipsis fz12 index-eng">proposal</p>
+						</div>
+					</a>
+				</li>
+				<li class="di-vm index-list">
+					<a href="">
+						<i class="iconfont icon-banshizhinan di-vm tx-c cff" style="background-image: url(images/index-list-bg.png);"></i>
+						<div class="di-vm">
+							<p class="p-ellipsis fz18 c40">办事指南</p>
+							<p class="p-ellipsis fz12 index-eng">Service guide</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!--index-list-end-->
+		<!--index-info-->
+		<div class="index-info warp clear">
+			<div class="fl index-info-left  mt30">
+				<!--公告-->
+				<div class="info-notice di-vm mb10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40">公告公示</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<div class="bsd pb10">
+						<div class="info-img mt15 di-vm mr5">
+							<a href="">				
+								<div>
+									<img src="images/index-notice.jpg" alt="" />
+								</div>
+								<p class="di-vm p-ellipsis">国土资源分局党支部召开...</p>
+							</a>
+						</div>
+						<div class="info-img mt15 di-vm">
+							<a href="">
+								<div>
+									<img src="images/index-notice.jpg" alt="" />
+								</div>
+								<p class="di-vm p-ellipsis">国土资源分局党支部召开...</p>
+							</a>
+						</div>
+					</div>
+					<ul class="info-list-info">
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="iconfont icon-dangwu c-blue di-vm"></i><span class="c-orange">【图】</span>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="iconfont icon-dangwu c-blue di-vm"></i><span class="c-orange">【图】</span>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="iconfont icon-dangwu c-blue di-vm"></i><span class="c-orange">【图】</span>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="iconfont icon-dangwu c-blue di-vm"></i><span class="c-orange">【图】</span>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+					</ul>
+				</div>
+				<!--公告结束-->
+				<!--快速入口-->
+				<div class="info-fast mt10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40">快速入口</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<ul class="info-fast-box">
+						<li class="di-vm tx-c c40 fz20 bgf4 mr5 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-hudong"></i>
+								<p class="di-vm p-ellipsis">民政互动</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c c40 fz20 bgf4 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-shipin"></i>
+								<p class="di-vm p-ellipsis">视频在线</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c c40 fz20 bgf4 mr5 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-emergency"></i>
+								<p class="di-vm p-ellipsis">应急管理</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c c40 fz20 bgf4 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-xiazai"></i>
+								<p class="di-vm p-ellipsis">下载中心</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c c40 fz20 bgf4 mr5 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-xuexi"></i>
+								<p class="di-vm p-ellipsis">学习园地</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c c40 fz20 bgf4 mb10">
+							<a href="" class="c40">
+								<i class="iconfont icon-diaocha"></i>
+								<p class="di-vm p-ellipsis">网上调查</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--快速入口结束-->
+			</div>
+			<div class="fl index-info-center mt30">
+				<!--办事导航-->
+				<div class="info-guide di-vm mb10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40">办事指南</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<ul class="info-guide-info info-list-info mt15">
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+					</ul>
+					<ul class="info-guide-box">
+						<li class="di-vm tx-c bgf4">
+							<a href="">
+								<i class="iconfont icon-banshichu c-orange di-vm"></i>
+								<p class="fz16 c40 p-ellipsis">办事程序</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c bgf4">
+							<a href="">
+								<i class="iconfont icon-biaoge- c-orange di-vm"></i>
+								<p class="fz16 c40 p-ellipsis">表格下载</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c bgf4">
+							<a href="">
+								<i class="iconfont icon-zhuangtaichaxun c-orange di-vm"></i>
+								<p class="fz16 c40 p-ellipsis">办件查询</p>
+							</a>
+						</li>
+						<li class="di-vm tx-c bgf4 m0">
+							<a href="">
+								<i class="iconfont icon-gongshigonggao c-orange di-vm"></i>
+								<p class="fz16 c40 p-ellipsis">结果公示</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--办事导航结束-->
+				<!--专题报道-->
+				<div class="info-topic mt10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40">专题报道</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<ul class="info-topic-box">
+						<li class="di-vm ">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+						<li class="di-vm">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+						<li class="di-vm ">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+						<li class="di-vm">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+						<li class="di-vm ">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+						<li class="di-vm">
+							<a href="">
+								<img src="images/index-news.jpg" alt="" />
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--专题报道结束-->
+			</div>
+			<div class="fr index-info-right mt30">
+				<!--政务公开-->
+				<div class="info-gover di-vm mb10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40">政务公开</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<ul class="info-gover-box">
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">规定|指南|目录|年报</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">规划|规费|统计|计划</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">人事信息</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">土地资源管理</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">矿产资源管理</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">国土资源执法监察</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">依申请公开</p>
+							</a>
+						</li>
+						<li class="di-vm bgf4">
+							<a href="">
+								<div class="di-vm bg-1"></div>
+								<p class="di-vm c40 f18 p-ellipsis pl5 ptb15">征地信息公开</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--政务公开结束-->
+				<!--政策法规-->
+				<div class="info-public mt10">
+					<div class="info-title clear">
+						<h2 class="di-vm fz18 c40"> 政策法规</h2>
+						<a href="" class="fr c40">+more</a>
+					</div>
+					<ul class="info-guide-info info-list-info mt15">
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li><li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+						<li>
+							<a href="#" class="p-ellipsis di-vm fz14 c59"><i class="di-vm"></i>不动产遗失补证公告</a>
+							<span class="fr fz14 c8e">03-14</span>
+						</li>
+					</ul>
+				</div>
+				<!--政策法规结束-->
+			</div>
+		</div>
+		<!--index-info end-->
+		<!--index-more-->
+		<div class="warp">
+			<div class="info-title clear mt30">
+				<h2 class="di-vm fz18 c40"> 政策法规</h2>
+				<a href="" class="fr c40">+more</a>
+			</div>
+			<div class="index-more">
+				<select name="" class="mr30">
+					<option value="">国家级网站</option>
+					<option value="">国家级网站3</option>
+					<option value="">国家级网站5</option>
+				</select>
+				<select name="" class="mr30">
+					<option value="">省市级网站</option>
+				</select>
+				<select name="" class="mr30">
+					<option value="">地州市网站</option>
+				</select>
+				<select name="" class="mr30">
+					<option value="">各县市区网站</option>
+				</select>
+				<select name="">
+					<option value="">凯里市各部门区网站</option>
+				</select>
+			</div>		
+		</div>
+		<!--index-more end-->
+		<div class="footer bg-blue">
+			<div class="warp clear">
+				<div class="footer-box pt35">
+					<div class="footer-img fl mr15">
+						<img src="images/footer-red.png" alt="" />
+					</div>
+					<div class="cff fz14 lh16 clear">
+						<p>主办：凯里经济开发区国土资源分局        承办：凯里经济开发区国土资源信息中心</p>
+						<p>地址：贵州省黔东南州凯里经济开发区甘塘路<翁义> 邮编：556011</p>
+						<p>电话：0855-8584690     邮箱: 156287874@qq.com   QQ: 156287874</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom"></div>
+		<div id="allmap"></div>
+	</body>
+	<script type="text/javascript">
+		function SetHome(obj,url){
+
+		    try{
+		
+		        obj.style.behavior='url(#default#homepage)';
+		
+		       obj.setHomePage(url);
+		
+		   }catch(e){
+		
+		       if(window.netscape){
+		
+		          try{
+		
+		              netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+		
+		         }catch(e){
+		
+		              alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
+		
+		          }
+		
+		       }else{
+		
+		        alert("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【"+url+"】设置为首页。");
+		
+		       }
+		
+		  }
+
+}
+		function AddFavorite(title, url) {
+		 try {
+		   window.external.addFavorite(url, title);
+		 }
+		catch (e) {
+		   try {
+		    window.sidebar.addPanel(title, url, "");
+		  }
+		   catch (e) {
+		     alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请进入新网站后使用Ctrl+D进行添加");
+		   }
+		 }
+		}
+	</script>
+	<script type="text/javascript">
+
+//	$(function(){
+//		console.log($(".index-more select>option"))
+//		$(".index-more select").change(function(){
+////			confirm("你确定提交吗");
+//			if (confirm("你确定提交吗？")) {  
+////          	alert("点击了确定");  
+////          	console.log($(this).find("option:selected").val())
+//				window.open($(this).find("option:selected").val());
+//	        }  
+//	        else {  
+////	            alert("点击了取消");  
+//	        }  
+//		})
+//	})
+	</script>
+</html>
