@@ -4,8 +4,9 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/main.css" />
-		<link href="http://at.alicdn.com/t/font_521289_kb4xo0p0ndayk3xr.css" rel="stylesheet"/>
+		<link href="http://at.alicdn.com/t/font_521289_dvuuexdplrwzh0k9.css" rel="stylesheet"/>
 		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery.cookie.js" ></script>
 		<script type="text/javascript" src="js/carrot.js" ></script>
 	</head>
 	<body class="bgf2">
@@ -84,7 +85,8 @@
 				<ul class="fl lists-title bgff">
 					<li class="bg-blue cff bb lits-first">公告公示</li>
 					<li class="plr10"><a href="" class="c59">写信需知</a><div class="bb"></div></li>
-					<li class="active "><a href="" class="c59">我要写信</a><div class="bb"></div></li>
+					<li ><a href="" class="c59">我要写信</a><div class="bb"></div></li>
+					<li class="active "><a href="" class="c59">网上调查</a><div class="bb"></div></li>
 				</ul>
 				<ul class="fl lists-title bgff email-p0">
 					<li><a href="" class="c59">公众留言</a></li>
@@ -97,85 +99,39 @@
 				</ul>
 			</div>
 			<div class="fr bgff lists-info write-info clear">
-				<p class="upload" style="display: none;">http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=upload</p>
-				<form action="http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=msg" class="write" method="post" enctype="multipart/form-data" target="form1"> 
-					<p class="fz20 c59 mb10"><b class="fw-b">信访人信息</b>（注意：带<span class="c-red">*</span>号的信息必须填写）</p>
-					<div class="di-vm write-small">
-						<span class="tx-r">姓名：</span>
-						<input type="" name="" id="" value="" />
-						<i class="c-red">*</i>
+				<form action="">
+					<div class="vote-info-title clear bb pb25">
+						<h3 class="fz20 c59 fw-b">1.今天食堂菜品满意度</h3>
+						<p class="fz20 c59 fr">（注意：投票时间2018/1/12 13：00-2018/1/12 15:00） </p>
 					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">信件分类：</span>
-						<select name="" class="fz18">
-							<option value="">意见建议</option>
-							<option value="">投诉举报</option>
-							<option value="">申诉</option>
-							<option value="">求决</option>
-							<option value="">咨询</option>
-							<option value="">其他</option>
-						</select>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">证件类型：</span>
-						<select name="" class="fz18">
-							<option value="">身份证</option>
-							<option value="">教师证</option>
-							<option value="">军官证</option>
-							<option value="">其他</option>
-						</select>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">证件号码：</span>
-						<input type="" name="cardid" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">联系地址：</span>
-						<input type="" name="" id="" value="" />
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">手机号码：</span>
-						<input type="" name="" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">电子邮箱：</span>
-						<input type="" name="email" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<p class="fz20 c59 mb10 mt60"><b class="fw-b">信访人信息</b>（注意：带<span class="c-red">*</span>号的信息必须填写）</p>
-					<div class="di-vm write-small write-lang">
-						<span class="tx-r">标题：</span>
-						<input type="" name="" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small write-textarea">
-						<span class="tx-r">内容：</span>
-						<textarea name="" rows="" cols="" class="fz20"></textarea>
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">相关附件：</span>
-						<input type="file" name="photo" id="" value="" class="upload-input"/>
-					</div>
-					
-					<div class="di-vm write-small write-short">
-						<span class="tx-r">验证码：</span>
-						<input type="" name="" id="" value="" />
-						<div class="dib all-code plr20">
-							<img  id="verify_img" src="http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=msgVerify"/>
-						</div>
-						<b class="fz16 write-change">看不清，换一张</b>
-						<i class="c-red">*</i>
-					</div>
-					
-					<div class="tx-c mt40 fz20 write-btn sure-null">
-						<input class="btn btn-submit mr40 cff bg-blue" type="submit" value="提交" >
+					<ul class="mt25 vote-input clear">
+						<li>
+							<label>满意</label>
+							<input name="Fruit" type="radio" value=""/>
+						</li>
+						<li>
+							<label>非常满意</label>
+							<input name="Fruit" type="radio" value="" />
+						</li>
+						<li>
+							<label>不满意</label>
+							<input name="Fruit" type="radio" value="" />
+						</li>
+						<li>
+							<label>非常不满意</label>
+							<input name="Fruit" type="radio" value="" />
+						</li>
+						<li>
+							<label>一般</label>
+							<input name="Fruit" type="radio" value="" />
+						</li>
+					</ul>
+					<div class="tx-c mt40 fz20 vote-btn">
+						<input class="btn btn-submit mr40 cff bg-blue" type="button" value="提交" >
 						<button class="btn c59" type="reset">重置</button>
 					</div>
+					
 				</form>
-				<iframe name="form1"></iframe>
 			</div>
 		</div>
 		
@@ -194,43 +150,6 @@
 			</div>
 		</div>
 		<div class="footer-bottom"></div>
-		<!--弹窗-->
-		<div class="dialog-box">
-			<div class="dialog-mask"></div>
-			<div class="dialog-con tx-c">
-				<p class="mt40 word-break">上传中，请耐心等待</p>
-				<div class="dialogBtn mt30">
-					<span>确定</span>
-				</div>
-			</div>
-		</div>
-		<!--弹窗结束-->
+
 	</body>
-	<script>
-		$("#submitform").submit(function(){
-                $(".dialog-box").addClass("active");
-               // return false;
-           })
-	        function success(str){
-	        	$(".dialogText").text(str);
-	        	$(".dialogBtn").addClass("active");
-	        	$(".dialogBtn").click(function(){
-	           		successBtn();
-	           	})
-	        }
-	        function fail(str){
-	        	$(".dialogText").text(str);
-	        	$(".dialogBtn").addClass("active");
-	        	$(".dialogBtn").click(function(){
-	           		failBtn()
-	           	})
-	        }
-	        function successBtn(){
-	        	window.location.reload();
-	        }
-	        function failBtn(){
-	        	$(".dialog-box").removeClass("active");
-	        }
-		
-	</script>
 </html>

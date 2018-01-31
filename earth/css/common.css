@@ -1027,4 +1027,29 @@
 .bg-1 {
   background: #bd8cbf; }
 
+.bg-2 {
+  background: #00bff3; }
+
+.bg-3 {
+  background: #f7941d; }
+
+.bg-4 {
+  background: #bd8cbf; }
+
+.bg-5 {
+  background: #1cbbb4; }
+
+.bg-6 {
+  background: #a67c52; }
+
+.bg-7 {
+  background: #f5989d; }
+
+.bg-8 {
+  background: #7cc576; }
+
+.word-break {
+  word-break: break-all;
+  word-wrap: break-word; }
+
 /*# sourceMappingURL=common.css.map */

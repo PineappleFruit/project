@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" href="css/main.css" />
-		<link href="http://at.alicdn.com/t/font_521289_78bqvg6kn5wpcik9.css" rel="stylesheet"/>
+		<link href="http://at.alicdn.com/t/font_521289_t5cyhyengz0py14i.css" rel="stylesheet"/>
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script type="text/javascript" src="js/carrot.js" ></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=sIGbSgP9UziFAZyNXUKlYDGFVjFNZ1l6"></script>
@@ -32,7 +32,7 @@
 					        <tbody>
 					        	<tr>
 						          <td><input type="text" name="query" value="" class="fz16 c66" placeholder="请输入搜索关键字..."></td>
-						          <td><i class="iconfont icon-sousuo cff tx-c"></i></td>
+						          <td><button class="iconfont icon-sousuo cff tx-c"></button></td>
 						        </tr> 
 					      	</tbody>
 						</table>
@@ -87,7 +87,7 @@
 		<div class="today-news bgf4 bb">
 			<div class="warp">
 				<div class="fl mt20 today-title">
-					<div class="fz18 cff today-banner pl10" style="background-image: -webkit-image-set(url(images/today-news.png) 1x, url(images/today-news.svg) 2x);">今日头条</div>
+					<div class="fz18 cff today-banner pl10" style="background-image: url(images/today-news.png)">今日头条</div>
 					<a href="#" class="fz18 c-blue plr10">2016年部门预算及“三公”经费信息公开情况</a>
 				</div>
 				<div class="fr fz18 todat-info">
@@ -499,8 +499,8 @@
 						</li>
 						<li class="di-vm tx-c bgf4">
 							<a href="">
-								<i class="iconfont icon-biaoge- c-orange di-vm"></i>
-								<p class="fz16 c40 p-ellipsis">表格下载</p>
+								<i class="iconfont icon-download c-orange di-vm"></i>
+								<p class="fz16 c40 p-ellipsis">下载中心</p>
 							</a>
 						</li>
 						<li class="di-vm tx-c bgf4">
@@ -726,7 +726,6 @@
 		         }catch(e){
 		
 		              alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
-		
 		          }
 		
 		       }else{
@@ -740,33 +739,19 @@
 }
 		function AddFavorite(title, url) {
 		 try {
-		   window.external.addFavorite(url, title);
-		 }
-		catch (e) {
-		   try {
-		    window.sidebar.addPanel(title, url, "");
-		  }
-		   catch (e) {
-		     alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请进入新网站后使用Ctrl+D进行添加");
-		   }
-		 }
+			   window.external.addFavorite(url, title);
+			 }
+			catch (e) {
+			   try {
+			    window.sidebar.addPanel(title, url, "");
+			  }
+			   catch (e) {
+			     alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请进入新网站后使用Ctrl+D进行添加");
+			   }
+			 }
 		}
 	</script>
 	<script type="text/javascript">
-
-//	$(function(){
-//		console.log($(".index-more select>option"))
-//		$(".index-more select").change(function(){
-////			confirm("你确定提交吗");
-//			if (confirm("你确定提交吗？")) {  
-////          	alert("点击了确定");  
-////          	console.log($(this).find("option:selected").val())
-//				window.open($(this).find("option:selected").val());
-//	        }  
-//	        else {  
-////	            alert("点击了取消");  
-//	        }  
-//		})
-//	})
+		
 	</script>
 </html>

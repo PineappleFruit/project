@@ -96,86 +96,43 @@
 					<li><a href="" class="c59">建言献策</a></li>
 				</ul>
 			</div>
-			<div class="fr bgff lists-info write-info clear">
-				<p class="upload" style="display: none;">http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=upload</p>
-				<form action="http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=msg" class="write" method="post" enctype="multipart/form-data" target="form1"> 
-					<p class="fz20 c59 mb10"><b class="fw-b">信访人信息</b>（注意：带<span class="c-red">*</span>号的信息必须填写）</p>
-					<div class="di-vm write-small">
+			<div class="fr bgff lists-info write-info clear tx-c">
+				<form action="http://www.gui.net/index.php?g=Discuz&m=index&a=msg" class="search">
+					<div class="db write-small tx-c search-input">
 						<span class="tx-r">姓名：</span>
 						<input type="" name="" id="" value="" />
 						<i class="c-red">*</i>
 					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">信件分类：</span>
-						<select name="" class="fz18">
-							<option value="">意见建议</option>
-							<option value="">投诉举报</option>
-							<option value="">申诉</option>
-							<option value="">求决</option>
-							<option value="">咨询</option>
-							<option value="">其他</option>
-						</select>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">证件类型：</span>
-						<select name="" class="fz18">
-							<option value="">身份证</option>
-							<option value="">教师证</option>
-							<option value="">军官证</option>
-							<option value="">其他</option>
-						</select>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">证件号码：</span>
-						<input type="" name="cardid" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">联系地址：</span>
-						<input type="" name="" id="" value="" />
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">手机号码：</span>
+					<div class="db write-small tx-c search-input">
+						<span class="tx-r">证件号：</span>
 						<input type="" name="" id="" value="" />
 						<i class="c-red">*</i>
 					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">电子邮箱：</span>
-						<input type="" name="email" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<p class="fz20 c59 mb10 mt60"><b class="fw-b">信访人信息</b>（注意：带<span class="c-red">*</span>号的信息必须填写）</p>
-					<div class="di-vm write-small write-lang">
-						<span class="tx-r">标题：</span>
-						<input type="" name="" id="" value="" />
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small write-textarea">
-						<span class="tx-r">内容：</span>
-						<textarea name="" rows="" cols="" class="fz20"></textarea>
-						<i class="c-red">*</i>
-					</div>
-					<div class="di-vm write-small">
-						<span class="tx-r">相关附件：</span>
-						<input type="file" name="photo" id="" value="" class="upload-input"/>
-					</div>
-					
-					<div class="di-vm write-small write-short">
+					<div class="db write-small tx-c search-input">
 						<span class="tx-r">验证码：</span>
 						<input type="" name="" id="" value="" />
-						<div class="dib all-code plr20">
-							<img  id="verify_img" src="http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=msgVerify"/>
-						</div>
-						<b class="fz16 write-change">看不清，换一张</b>
 						<i class="c-red">*</i>
 					</div>
 					
-					<div class="tx-c mt40 fz20 write-btn sure-null">
-						<input class="btn btn-submit mr40 cff bg-blue" type="submit" value="提交" >
+					<div class="db  search-input mt0 search-code mt10">
+						<!--<span class="tx-r"></span>-->
+						<p class="fz16 c81">输入下图中的字符，不区分大小写</p>
+						<div class="search-box mt5 clear">
+							<div class="fl all-code">
+								<img id="verify_img" src="http://www.klkfqlr.gov.cn/index.php?g=Discuz&m=index&a=msgVerify"/>
+							</div>
+							<div class="fl ml5">
+								<span class="c-blue fz16 dib write-change">看不清，换一张</span>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="tx-c mt40 fz20 pl20 search-btn sure-null">
+						<input class="btn btn-submit mr40 cff bg-blue apply-submit" type="button" value="查询" >
 						<button class="btn c59" type="reset">重置</button>
 					</div>
 				</form>
-				<iframe name="form1"></iframe>
 			</div>
 		</div>
 		
@@ -194,43 +151,5 @@
 			</div>
 		</div>
 		<div class="footer-bottom"></div>
-		<!--弹窗-->
-		<div class="dialog-box">
-			<div class="dialog-mask"></div>
-			<div class="dialog-con tx-c">
-				<p class="mt40 word-break">上传中，请耐心等待</p>
-				<div class="dialogBtn mt30">
-					<span>确定</span>
-				</div>
-			</div>
-		</div>
-		<!--弹窗结束-->
 	</body>
-	<script>
-		$("#submitform").submit(function(){
-                $(".dialog-box").addClass("active");
-               // return false;
-           })
-	        function success(str){
-	        	$(".dialogText").text(str);
-	        	$(".dialogBtn").addClass("active");
-	        	$(".dialogBtn").click(function(){
-	           		successBtn();
-	           	})
-	        }
-	        function fail(str){
-	        	$(".dialogText").text(str);
-	        	$(".dialogBtn").addClass("active");
-	        	$(".dialogBtn").click(function(){
-	           		failBtn()
-	           	})
-	        }
-	        function successBtn(){
-	        	window.location.reload();
-	        }
-	        function failBtn(){
-	        	$(".dialog-box").removeClass("active");
-	        }
-		
-	</script>
 </html>

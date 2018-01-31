@@ -5,7 +5,9 @@
 		<title></title>
 		<link rel="stylesheet" href="css/main.css" />
 		<link href="http://at.alicdn.com/t/font_521289_kb4xo0p0ndayk3xr.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/jplayer.blue.monday.css" />
 		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/jquery.jplayer.min.js" ></script>
 	</head>
 	<body class="bgf2">
 		<div class="header">
@@ -89,19 +91,52 @@
 			<div class="fr bgff lists-info video-info">
 				<h2 class="fz24 c59 tx-c pt25 p-ellipsis">凯里市4个村寨大型盛大民族活动</h2>
 				<p class="p-ellipsis fz14 c8e tx-c mt25 pb40">发布时间： 2017年12月19日　 文字来源：市旅发委　 作者：王开贵 　点击量：<span>50</span>次 　<a href="" class="c8e">打印本页</a> <a href="" class="c8e">关闭本页</a> 　</p>
-				<div class="bb bt video-video pl15 ptb20">
-					<!--<video>
-						<source src="myvideo.mp4" type="video/mp4"></source>
-						<source src="myvideo.ogv" type="video/ogg"></source>
-						<source src="myvideo.webm" type="video/webm"></source>
-						<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
-							<param name="movie" value="myvideo.swf" />
-							<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
-						</object>
-						当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
-					</video>-->
-					<iframe class="mlr60" style="z-index: 1;" src="http://ugcws.video.gtimg.com/flv/100/189/u0527h39c6m.p712.1.mp4?sdtfrom=v1010&guid=6e9dad0f075c2da2c37e441e0db32858&vkey=8E9D21B92F227DAC4EF66F0141D17E92DFF94B1846FD436031F09FC95D99FB4B1D8A9A0A1F62ABBD3F3C27C9032291A7514B6E784362276D2FD0E36A5582D74DC1EC174E7DDF1410F88EFE0C86C033E03F8CE0DFECEC1606A60A0045A098D04D53B64475C4F6F9EF938593F0264FFA2F9A6ADC69C3DB9D66?vid=k0015trfczz&amp;width=300&amp;height=200&amp;quto=0" 
-						allowfillscreen="" frameborder="0" height="500" width="600"></iframe>
+				<div class="bb bt video-video ptb40">
+					<!--<iframe class="mlr60" style="z-index: 1;" src="http://ugcws.video.gtimg.com/flv/100/189/u0527h39c6m.p712.1.mp4?sdtfrom=v1010&guid=6e9dad0f075c2da2c37e441e0db32858&vkey=8E9D21B92F227DAC4EF66F0141D17E92DFF94B1846FD436031F09FC95D99FB4B1D8A9A0A1F62ABBD3F3C27C9032291A7514B6E784362276D2FD0E36A5582D74DC1EC174E7DDF1410F88EFE0C86C033E03F8CE0DFECEC1606A60A0045A098D04D53B64475C4F6F9EF938593F0264FFA2F9A6ADC69C3DB9D66?vid=k0015trfczz&amp;width=300&amp;height=200&amp;quto=0" 
+						allowfillscreen="" frameborder="0" height="500" width="600"></iframe>-->
+						<div id="jp_container_1" class="jp-video jp-video-360p" role="application" aria-label="media player">
+							<div class="jp-type-single">
+								<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+								<div class="jp-gui">
+									<div class="jp-video-play">
+										<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+									</div>
+									<div class="jp-interface">
+										<div class="jp-progress">
+											<div class="jp-seek-bar">
+												<div class="jp-play-bar"></div>
+											</div>
+										</div>
+										<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+										<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+										<div class="jp-controls-holder">
+											<div class="jp-controls">
+												<button class="jp-play" role="button" tabindex="0">play</button>
+												<button class="jp-stop" role="button" tabindex="0">stop</button>
+											</div>
+											<div class="jp-volume-controls">
+												<button class="jp-mute" role="button" tabindex="0">mute</button>
+												<button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+												<div class="jp-volume-bar">
+													<div class="jp-volume-bar-value"></div>
+												</div>
+											</div>
+											<div class="jp-toggles">
+												<button class="jp-repeat" role="button" tabindex="0">repeat</button>
+												<button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+											</div>
+										</div>
+										<div class="jp-details">
+											<div class="jp-title" aria-label="title">&nbsp;</div>
+										</div>
+									</div>
+								</div>
+								<div class="jp-no-solution">
+									<span>Update Required</span>
+									To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+								</div>
+							</div>
+						</div>
 				</div>
 				<div class="mt30 next-news"><a href="" class="fz16 c59">上一篇：不动产遗失补证公告</a></div>
 				<div class="mt20 next-news bb pb40"><a href="" class="fz16 c59">下一篇：凯里经济开发区国土资源分局公开服务承诺书</a></div>
@@ -132,6 +167,8 @@
 						<span class="fr fz14 c8e">03-14</span>
 					</li>
 				</ul>
+				<!--vedio-->
+				<p class="videoSrc" style="display: none;" >http://www.gui.net/d/file/content/2018/01/5a4da2b39c8e4.mp4</p>
 			</div>
 		</div>
 		<div class="footer bg-blue">
@@ -149,5 +186,36 @@
 			</div>
 		</div>
 		<div class="footer-bottom"></div>
+		
 	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+				
+//			 var m4v = "http://www.gui.net/d/file/content/2018/01/5a4da2b39c8e4.mp4";
+			var m4v = $(".videoSrc").text();
+
+			$("#jquery_jplayer_1").jPlayer({
+				ready: function () {
+					$(this).jPlayer("setMedia", {
+						title: "Big Buck Bunny",
+						m4v:m4v,
+					});
+				},
+				swfPath: "../../dist/jplayer",
+				supplied: "webmv, ogv, m4v",
+				size: {
+					width: "640px",
+					height: "360px",
+					cssClass: "jp-video-360p"
+				},
+				useStateClassSkin: true,
+				autoBlur: false,
+				smoothPlayBar: true,
+				keyEnabled: true,
+				remainingDuration: true,
+				toggleDuration: true
+			});
+		
+		});
+</script>
 </html>
