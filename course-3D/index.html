@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3D效果轮播</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/main.js" ></script>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="silder-con">
+				<ul>
+					<li class="enter">
+						<div class="silder-con-all clear">
+							<div class="silder-con-pic">
+								<img src="img/slider-con-all-pic01.png" alt="" />
+							</div>
+							<div class="silder-con-txt">
+								<b>SECURE AND TRANSPARENT1111111111111</b>
+								<h4>Marketplace for Gold Bullion</h4>
+								<p>Every asset represents a unique bullion bar sitting in designated custodial vaults. The provenance of the Gold is traceable, immutable and exists indefinitely.</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="silder-con-all pic-right">
+							<div class="silder-con-pic">
+								<img src="img/slider-con-all-pic02.png" alt="" />
+							</div>
+							<div class="silder-con-txt">
+								<b>SECURE AND TRANSPARENT22222222222222</b>
+								<h4>Marketplace for Gold Bullion</h4>
+								<p>Every asset represents a unique bullion bar sitting in designated custodial vaults. The provenance of the Gold is traceable, immutable and exists indefinitely.</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="silder-con-all">
+							<div class="silder-con-pic">
+								<img src="img/slider-con-all-pic01.png" alt="" />
+							</div>
+							<div class="silder-con-txt">
+								<b>SECURE AND TRANSPARENT33333333333333333</b>
+								<h4>Marketplace for Gold Bullion</h4>
+								<p>Every asset represents a unique bullion bar sitting in designated custodial vaults. The provenance of the Gold is traceable, immutable and exists indefinitely.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="silder-bg">
+				<ul>
+					<li style="background-image: url(img/slider-bg01.jpg);" class="enter"></li>
+					<li style="background-image: url(img/slider-bg02.jpg);" class="leave"></li>
+					<li style="background-image: url(img/slider-bg03.jpg);" class="leave"></li>
+				</ul>
+			</div>
+			<div class="silder-btn slider-left-btn">
+				<span> < </span>
+			</div>
+			<div class="silder-btn slider-right-btn">
+				<span> > </span>
+			</div>
+			<div class="silder-page">
+				<ul>
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		silderCourse(5000);
+	</script>
+</html>

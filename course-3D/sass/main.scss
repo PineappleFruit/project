@@ -1,0 +1,35 @@
+@charset "UTF-8";
+@import "reset";
+@import "hlj";
+
+body{
+    background: #F2F2F1;
+    min-width: 1100px;
+    font-size: 14px;
+}
+.wrap{
+    width: 1100px;
+    margin: 0 auto
+}
+//-------浮动 begin-------
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fn{
+    float: none
+}
+.clear {
+  zoom: 1;
+}
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+//-------浮动 end--------
+
