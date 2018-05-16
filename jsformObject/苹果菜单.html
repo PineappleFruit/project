@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			#div1{width:100%;height:auto;position:absolute;
+				bottom:0;text-align:center;
+			}
+			#div1 img{width:64px}
+		</style>
+		
+	</head>
+	<body>
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<input type="text">
+		<div id = 'div1'>
+			<img src = 'images/1.png'>
+			<img src = 'images/2.png'>
+			<img src = 'images/3.png'>
+			<img src = 'images/4.png'>
+			<img src = 'images/5.png'>
+		</div>
+	</body>
+	<script>
+		/*
+		Math.pow(3,2) 3的平方 
+		//Math.pow(3,3) 3的立方
+		Math.sqrt(9) 9的开方
+		1.先找中心点
+		2. 获取输入框
+		
+		*/
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oImg = oDiv.getElementsByTagName('img');
+			var oInput = document.getElementsByTagName('input');
+			
+			document.onmousemove = function(ev){
+				var ev = ev || window.ev;
+				console.log(ev)
+				
+				
+				
+				for(var i = 0 ;i < oImg.length ; i++){
+					
+					var x = oImg[i].offsetLeft + oImg[i].offsetWidth/2
+					var y = oImg[i].offsetTop + oImg[i].offsetHeight/2 + oDiv.offsetTop
+					
+					var a = ev.clientX - x;
+					var b = ev.clientY - y;
+					
+					var c = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+					
+					var scale = 1 - c/300
+					if(scale < 0.5){
+						scale = 0.5
+					}
+					
+					oInput[i].value = scale
+					
+					oImg[i].style.width = scale * 120 + 'px'
+					
+					oImg[i].style.height = scale * 120 + 'px'
+					
+				}
+			}
+			
+			
+		}
+	</script>
+</html>

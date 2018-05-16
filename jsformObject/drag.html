@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#div1{width:100px;height:100px;background:red;position:absolute}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		
+		/*window.onload = function(){
+			oDiv = document.getElementById('div1');
+			init();
+		}
+		function init(){
+			oDiv.onmousedown = funDown;
+		}
+		function funDown(ev){
+			var ev = ev || window.event;
+				
+			disx = ev.clientX - oDiv.offsetLeft;
+			disy = ev.clientY - oDiv.offsetTop;
+			
+			document.onmousemove = funMove;
+			document.onmouseup = funUp;
+			return false;
+		}
+		function funMove(ev){
+			var ev = ev || window.event;
+			oDiv.style.left = ev.clientX - disx +　'px';
+			oDiv.style.top = ev.clientY - disy + 'px'
+		}
+		function funUp(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		*/
+		var oDiv = null;
+			
+		var disx = 0;
+		var disy = 0;
+		window.onload = function(){
+			var dl = new Drag('div1')
+			dl.init();
+		}
+		function Drag(div){
+			this.disx = disx;
+			this.disy = disy;
+			this.oDiv = document.getElementById(div);
+		}
+		Drag.prototype.init = function(ev){
+			var This = this;
+			this.oDiv.onmousedown = function(){
+				This.funDown(ev)
+			};
+		}
+		Drag.prototype.funDown = function(ev){
+			var ev = ev || window.event;
+			var This = this;
+			this.disx = ev.clientX - this.oDiv.offsetLeft;
+			this.disy = ev.clientY - this.oDiv.offsetTop;
+			
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				This.funMove(ev)
+			};
+			document.onmouseup = function(){
+				var ev = ev || window.event;
+				This.funUp(ev)
+			};
+			return false;
+		}
+		Drag.prototype.funMove = function(ev){
+			var ev = ev || window.event;
+			this.oDiv.style.left = ev.clientX - this.disx +　'px';
+			this.oDiv.style.top = ev.clientY - this.disy + 'px'
+		}
+		Drag.prototype.funUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	</script>
+</html>

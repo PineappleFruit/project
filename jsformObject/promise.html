@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		
+		/*dosomething(function(value){
+			console.log('got' + value);
+		})*/
+		
+		/*dosomething().then(function(value){
+			console.log('got' + value);
+		})*/
+		
+		/*function dosomething(callback){
+			var value = 42;
+			callback(value);
+		}*/
+		/*function dosomething(){
+			return{
+				then:function(callback){
+					var value = 42;
+					callback(value)
+				}
+			}
+		}*/
+		
+		//es6
+		/*const str = 'hahay'
+		console.log(str.includes('y'))
+		const str = 'he'
+		console.log(str.repeat(3))
+		const str = 'hello world'
+		console.log(str.startsWith('hello'))
+		console.log(str.endsWidth(!))
+		
+		const calculate = (x,y,z) => {
+			x = typeof x !=number || 0
+			y = typeof y != number || 6
+			return x %y === z
+		}
+		//assign //浅复制 
+		
+		//重构
+		var jsonParse = require('body-parser').jsonParse
+		
+		import {jsonParse} from 'body-parser'
+		
+		var body = request.body
+		var username = body.username 
+		var password = body.password
+		
+		const {body , body:{username,password}} = requset
+		
+		setTimeout(function(){
+			console.log(1)
+		},0)
+		new Promise(function executor(resolve){
+			console.log(2);
+			for(var i = 0 ; i< 10000; i++){
+				i == 999 && resolve();
+			}
+			console.log(3);
+		}).then(function(){
+			console.log(4)
+		});
+		console.log(5)
+		
+		2 3 5 4 1 
+		setTimeout(function(){
+			console.log(4)
+		},0)
+		new Promise(function executor(resolve){
+			console.log(1);
+			for(var i = 0 ; i< 10000; i++){
+				i == 999 && resolve();
+			}
+			console.log(2);
+		}).then(function(){
+			console.log(5)
+		});
+		console.log(3)
+		
+		1 2 3 5 4
+		
+		const wait  = ms => new Promise(resolve => setTimeout(resolve,ms));
+		wait().then(() => console.log(4))
+		Promise.resolve().then(()=> console.log(2).then() => console.log(3));
+		console.log(1);
+		
+		1 2 3 4
+		
+		class Animal{
+			constructor(){
+				this.type = 'animal';
+			}
+			say(val){
+				setTimeout(function(){
+					console.log(this);
+					console.log(this.type + 'says' + val)
+				},1000)
+			}
+		}
+		var animal = new Animal();
+		animal.say('hi');
+		
+		function showNum(i){
+			return function(){
+				console.log(i);
+			}
+		}
+		var a = []
+		for(var i = 0; i < 5 ;i++){
+			a[i] = showNum(i)()
+		}
+		
+		for(var i = 0 ; i < 10;i++){
+			a[i] = (function (i){
+				return function(){
+					console.log(i);
+				}
+			})(i) 
+		}
+		
+		var funcs = []
+		for(var  i = 0; i < 10 ; i++){
+			funcs.push(function(){
+				console.log(i)
+			})
+		}
+		funcs.forEach(function (funcs){
+			funcs();
+		})
+		
+		
+		for(var i = 0 ; i < 10 ; i++){
+			funcs.push((function(i){
+				return function(){
+					console.log(i)
+				}
+			})(i))
+		}
+		
+		const set  = new Set([1,2,3,4,5])
+		console.log([...set]) //成员值唯一
+		console.log(Array.from(new Set([2,3,3,5,3])))
+		
+		class Animal{
+			constructor(){
+				this.type = 'animal'
+			}
+			says(say){
+				console.log(this.type + 'says' + say)
+			}
+		}
+		let animal = new Animal()
+		animal.says('hello')
+		class Cat extends Animal{
+			constructor(){
+				super()
+				this.type = 'cat'
+			}
+		}
+		let cat = new Cat()
+		cat.says('hello')
+		
+		var name = 'lux'
+		console.log(`hello${name}`);
+		
+		Promise.all //返回实例的回调函数  让一个函数无论成功失败都被调用
+		
+		let f = ([a,b] = [1,2],{x:c} = {x:a + b})=>a+b+calculate
+		f()
+		*/
+		/*var adder   = {
+			base:1,
+			
+			add : function(a){
+				var f = v => v + this.base;
+				return f(a);
+			},
+			
+			addThruCall:function(a){
+				var  f = v => v + this.base;
+				var b = {
+					base:2
+				};
+				return f.call(b,a)
+			}
+		};
+		console.log(adder.add(1));
+		console.log(adder.addThruCall(1));
+		*/
+		/*
+		function foo(){
+			var f = (i) => arguments[0] + i;
+			console.log(arguments[0])
+			return f(2);
+		}
+		console.log(foo(1)); //3
+		/*function foo(1){
+			f = function(2)(
+				return arguments[0] + 1 // arguments[0] > 2
+			)
+		}*/
+		
+		/*function foo(){
+			var f = (..args) => args[0];
+			return f(2);
+		}
+		foo(1); // 2
+
+		/*function foo(1){
+			f = function(2) {
+				return args[0]  // args[0]  > 2
+			}
+		}*/
+		
+		/*var obj = {
+			i:10,
+			b:() => console.log(this.i,this),
+			c:function(){
+				console.log(this.i,this)
+			}
+		}
+		obj.b();*/
+		
+		/*var  obj = {
+			a: 10
+		}
+		Object.defineProperty(obj,'b',{
+			get : () => {
+				console.log(this.a , typeof this.a,this);
+				return this.a+10
+			}
+		})*/
+		
+		var func = () => ({foo:1});
+		
+		/*var greeting = () =>{
+			let now = new Date();
+			return('Good' + ((now.getHours() > 17) ? "evening" : "day."))
+		}
+		greeting();
+		console.log(now); //undefined
+		*/
+		
+		//{}里面不使用var定义的变量是全局变量
+		/*var greeting = () =>{
+			now = new Date();
+			return('Good' + ((now.getHours() > 17) ? "evening" : "day."))
+		}
+		greeting();
+		console.log(now);
+		
+		//{}里面使用var 是局部变量
+		
+		/*mounted(){
+			this.$nextTick(() =>{
+				this.scroll = new Bsrcoll(this.$refs.wrapper,{
+					//参数
+				})
+			})
+		}
+		data(){
+			return {
+				daot[]
+			}
+		}
+		create(){
+			requertData().then(res) =>{
+				this.data =res.data
+				this.$nextTick(() =>{
+					this.scroll = new Bsrcoll(this.$refs.wrapper,{})
+				})
+			}
+		}
+		better scroll 创建在mounted的nextTick 20 
+		*/
+		
+		
+		//prototype
+		/*var pserson2 = Object.create(person1)
+		pserson2.__proto__ // person1对象
+		
+		constructor 构造器
+		person1.constructor  => person()
+		
+		function Teachrt(first,last,age,genger,interests,subject){
+			Person.call(this,first,last,age,gender,intersets)
+			this.subject = subject
+		}*/
+		
+		//oop 面向对象编程
+		/*var arr = [];
+		arr.number = 10; //对象下面的变量叫对象的属性
+		var  obj = {};//空对象
+		obj.name = '小明';
+		obj.showName = function(){
+			console.log(obj.name)
+		}
+		obj.showName();
+		//当new去调用一个函数  这时候函数中的this就是创建出来的对象
+		//而且函数的返回值直接就是this (隐式返回)
+		//不用写return
+		//new 后面调用的函数叫构造函数
+		function createPerson(name){
+			var obj = {};
+			obj.name = name;
+			obj.showName = function(){
+				console.log(this.name)
+			}
+			return obj;
+		}
+		createPerson('小明').showName();
+		
+		var a = [1,2,3]
+		var b= a;//基本类型只是值得复制
+		//对象类型 赋值不止是值得复制也是引用的传递比如push方法
+		//基本类型只要值相同就是true
+		//改写对象下面公用的方法或者属性，让公用方法或属性在内存中
+		//只存在一份（提高性能）!!!!!
+		不能公用的  属性变化的一般不放在原型里
+		*/
+		//原型 prototype  写在构造函数的下面
+		var arr =  [1,2,3,4]
+		/*arr.num = function(){
+			var result = 0;
+		}*/
+		Array.prototype.sum = function(){
+			var result = 0;
+			for(var  i=0;i<this.length;i++){
+				result += this[i]
+			}
+			return result
+		}
+		console.log(arr.sum())
+		
+		//apply call 构造函数绑定 将父对象的构造函数绑定在子对象上
+		</script>
+</html>

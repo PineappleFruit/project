@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{ margin:0; padding:0;}
+			#ul1{ width:660px; position:relative; margin:10px auto;}
+			li{ width:200px; height:150px; margin:10px; float:left; list-style:none;}
+		</style>
+		
+	</head>
+	<body>
+		<ul id="ul1">
+			<li><img src="photo/1.jpg" /></li>
+			<li><img src="photo/2.jpg" /></li>
+			<li><img src="photo/3.jpg" /></li>
+			<li><img src="photo/4.jpg" /></li>
+			<li><img src="photo/5.jpg" /></li>
+			<li><img src="photo/1.jpg" /></li>
+			<li><img src="photo/2.jpg" /></li>
+			<li><img src="photo/3.jpg" /></li>
+			<li><img src="photo/4.jpg" /></li>
+		</ul>
+	</body>
+	<script>
+		window.onload = function(){
+			var oUl = document.getElementById('ul1');
+			var oLi = oUl.getElementsByTagName('li');
+			
+			var arr = [];
+			var zIndex = 2;
+			for(var i = 0 ; i < oLi.length ; i++){
+				
+				arr.push([oLi[i].offsetLeft,oLi[i].offsetTop]);
+				/*
+				oLi[i].style.position = 'absolute'
+				oLi[i].style.left = oLeft + 'px';
+				oLi[i].style.top = oTop + 'px'
+				*/
+			}
+			//console.log(arr)
+			for(var i = 0 ; i < oLi.length ; i++){
+				oLi[i].style.position = 'absolute'
+				oLi[i].style.left = arr[i][0] + 'px';
+				oLi[i].style.top = arr[i][1] + 'px';
+				oLi[i].style.margin = 0
+			}
+			
+			for(var i = 0 ; i <oLi.length ; i++){
+				drag(oLi[i]);
+			}
+			function drag(obj){
+				var disX = 0 ;
+				var disY = 0 ;
+				obj.onmousedown = function(ev){
+					var ev = ev || window.ev;
+					obj.style.zIndex = zIndex++
+					disX = ev.clientX - obj.offsetLeft;
+					disY = ev.clientY - obj.offsetTop;
+					document.onmousemove = function(ev){
+						var ev = ev || window.ev;
+						obj.style.left = ev.clientX - disX + 'px';
+						obj.style.top = ev.clientY - disY + 'px';
+						//将碰到的元素添加边框
+						for(var i = 0; i < oLi.length ;i++){
+							if(pz(obj,oLi[i])){
+								oLi[i].style.border = '2px solid red';
+							}
+						}
+					}
+					document.onmouseup = function(){
+						document.onmousedown = null;
+						document.onmousemove = null
+					}
+					return false;
+				}
+			}
+			
+			//找碰到的元素
+			function pz(obj1,obj2){
+				var L1 = obj1.offsetLeft;
+				var R1 = obj1.offsetLeft + obj1.offsetWidth;
+				var T1 = obj1.offsetTop ;
+				var B1 = obj1.offsetTop + obj1.offSetHeight;
+
+				var L2 = obj2.offsetLeft;
+				var R2 = obj2.offsetLeft + obj2.offsetWidth;
+				var T2 = obj2.offsetTop ;
+				var B2 = obj2.offsetTop + obj2.offSetHeight;
+				
+				if( R1<L2 || L1>R2 || B1<T2 || T1>B2){
+					return false
+				}else{
+					return true
+				}
+			}
+		}
+	</script>
+</html>

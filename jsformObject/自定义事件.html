@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+				#div1{width:100px;height:100px;background:red;position:absolute}
+				#div2{width:100px;height:100px;background:green;position:absolute ;left:200px}
+				#div3{width:100px;height:100px;background:black;position:absolute ;left:400px}
+		</style>
+	</head>
+	<body>
+		<!--<div id="div1">div</div>
+		<span id="span1">span</span>-->
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+	</body>
+	<script>
+		/*window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oSpan = document.getElementById('span1');
+			bindEvent(oDiv,'hide',function(){
+				console.log(1)
+			});
+			fireEvent(oDiv,'hide')
+		}
+		
+		function bindEvent(obj,events,fn){ //绑定事件
+			console.log(obj)
+			obj.listeners = obj.listeners || {}
+			obj.listeners[events] = obj.listeners[events] || []
+				
+			obj.listeners[events].push(fn);
+			console.log(obj.listeners[events])
+			if(obj.addEventListener){
+				obj.addEventListener(events,fn,false)
+			}else{
+				obj.attachEvent('on'+events,fn)
+			}
+		}
+		function fireEvent(obj,events){//主动触发自定义事件
+			for(var i = 0; i < obj.listeners[events].length;i++){
+				obj.listeners[events][i]();
+			}
+		}
+		*/
+		//自定义事件 有利于团队协作开发
+		window.onload = function(){
+			var dl = new Drag()
+			dl.init({
+				id:'div1'
+			});
+			//var dl2 = new childDrag('div2')
+			//dl2.init();
+			var d2 = new Drag()
+			d2.init({
+				id:'div2',
+				//toDown:function(){
+				//	document.title = 'down'
+				//}
+			});
+			var d3 = new Drag()
+			d3.init({
+				id:'div3',
+				//toDown:function(){
+				//	document.title = 'down3'
+				//},
+				//toUp:function(){
+				//	document.title = 'up'
+				//}
+			});
+			bindEvent(d2,'toDown',function(){
+				document.title = 'down'
+			})
+			bindEvent(d3,'toDown',function(){
+				document.title = 'down3'
+			})
+			bindEvent(d3,'toUp',function(){
+				document.title = 'up'
+			})
+		}
+		
+		function Drag(){
+			this.obj = null;
+			this.disX = 0;
+			this.disY = 0;
+			this.setting = { //默认参数 
+			//	toDown : function(){},
+			//	toUp : function(){}
+			};
+		}
+		Drag.prototype.init = function(opt){
+			var This = this;
+			
+			this.obj = document.getElementById(opt.id)
+			extendPro(This.setting,opt)
+			this.obj.onmousedown = function(ev){
+				This.funDown(ev)
+			};
+		}
+		Drag.prototype.funDown = function(ev){
+			var This = this;
+			var ev = ev || window.event;
+			this.disX = ev.clientX - this.obj.offsetLeft;
+			this.disY = ev.clientY - this.obj.offsetTop;
+			//This.setting.toDown();
+			fireEvent(This,'toDown')
+			
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				This.funMove(ev)
+			}
+			document.onmouseup = function(){
+				var ev = ev || window.event;
+				This.funUp(ev)
+			}
+			return false
+		}
+		Drag.prototype.funMove = function(ev){
+			this.obj.style.left = ev.clientX - this.disX + 'px'
+			this.obj.style.top  = ev.clientY -this.disY + 'px'
+		}
+		Drag.prototype.funUp = function(ev){
+			//this.setting.toUp();
+			fireEvent(this,'toUp')
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		function extendPro(obj1,obj2){
+			for(var attr in obj2){
+				obj1[attr] = obj2[attr];
+				//console.log(obj1[attr])
+			}
+		}
+		function bindEvent(obj,events,fn){ //绑定事件
+			//console.log(obj)
+			obj.listeners = obj.listeners || {}
+			obj.listeners[events] = obj.listeners[events] || []
+				
+			obj.listeners[events].push(fn);
+			//console.log(obj.listeners[events])
+			if(obj.nodeType){
+				if(obj.addEventListener){
+					obj.addEventListener(events,fn,false)
+				}else{
+					obj.attachEvent('on'+events,fn)
+				}
+			}
+		}
+		function fireEvent(obj,events){//主动触发自定义事件
+			if(obj.listeners && obj.listeners[events]){
+				for(var i = 0; i < obj.listeners[events].length;i++){
+					obj.listeners[events][i]();
+				}
+			}
+			
+		}
+	</script>
+</html>

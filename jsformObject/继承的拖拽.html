@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+				#div1{width:100px;height:100px;background:red;position:absolute}
+				#div2{width:100px;height:100px;background:green;position:absolute ;left:200px}
+				#div3{width:100px;height:100px;background:black;position:absolute ;left:400px}
+
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+	</body>
+	<script>
+		/*window.onload = function(){
+			var dl = new Drag('div1')
+			dl.init();
+			var dl2 = new childDrag('div2')
+			dl2.init();
+		}
+		function Drag(div){
+			this.obj = document.getElementById(div);
+			this.disX = 0;
+			this.disY = 0;
+		}
+		Drag.prototype.init = function(ev){
+			var This = this;
+			this.obj.onmousedown = function(){
+				This.funDown(ev)
+			};
+		}
+		Drag.prototype.funDown = function(ev){
+			var This = this;
+			var ev = ev || window.event;
+			this.disX = ev.clientX - this.obj.offsetLeft;
+			this.disY = ev.clientY - this.obj.offsetTop;
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				This.funMove(ev)
+			}
+			document.onmouseup = function(){
+				var ev = ev || window.event;
+				This.funUp(ev)
+			}
+			return false
+		}
+		Drag.prototype.funMove = function(ev){
+			this.obj.style.left = ev.clientX - this.disX + 'px'
+			this.obj.style.top  = ev.clientY -this.disY + 'px'
+		}
+		Drag.prototype.funUp = function(ev){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		
+		function childDrag(id){
+			
+			Drag.call(this,id);
+			console.log(Drag)
+		}
+		extendPro(childDrag.prototype,Drag.prototype);
+		//封装的方法继承函数
+		function extendPro(obj1,obj2){
+			for(var attr in obj2){
+				obj1[attr] = obj2[attr];
+				//console.log(obj1[attr])
+			}
+		}
+		childDrag.prototype.funMove = function(ev){
+			//console.log('xxx')
+			this.obj.style.left = ev.clientX - this.disX + 'px'
+			this.obj.style.top  = ev.clientY -this.disY + 'px'
+		}*/
+		
+		//类式继承 js没有类的概念
+		
+		/*function Aaa(){
+			this.name = '小明'
+			
+		}
+		Aaa.prototype.showName = function(){
+			console.log(this.name)
+		}
+		
+		function Bbb(){
+		
+		}
+		
+		Bbb.prototype = new Aaa();
+		
+		var b1 = new Bbb();
+		b1.showName()
+		Bbb.prototype.constructor = Bbb //修正指向问题
+		
+		console.log(b1.constructor)
+		//做属性和方法继承的时候  要分开继承
+		
+		//类式继承
+		
+		
+		//原型继承
+		var a = {
+			name :'小明' 
+		}
+		var b = cloneObj(a);
+		alert(b.name);
+		function cloneObj(obj){
+			var F = function(){};
+			F.prototype = obj;
+			return new F()
+		}
+		//拷贝继承 有new 和 无 new都可以
+		//类式继承 new 构造函数
+		//原型继承 无new 的对象
+		*/
+		
+		//组件开发  ： 多组对象 像兄弟之间的关系（代码复用的一种形式）
+		//配置参数 对象形式
+		//默认参数
+		window.onload = function(){
+			var dl = new Drag()
+			dl.init({
+				id:'div1'
+			});
+			//var dl2 = new childDrag('div2')
+			//dl2.init();
+			var d2 = new Drag()
+			d2.init({
+				id:'div2',
+				toDown:function(){
+					document.title = 'down'
+				}
+			});
+			var d3 = new Drag()
+			d3.init({
+				id:'div3',
+				toDown:function(){
+					document.title = 'down3'
+				},
+				toUp:function(){
+					document.title = 'up'
+				}
+			});
+		}
+		function Drag(){
+			this.obj = null;
+			this.disX = 0;
+			this.disY = 0;
+			this.setting = { //默认参数 
+				toDown : function(){},
+				toUp : function(){}
+			};
+		}
+		Drag.prototype.init = function(opt){
+			var This = this;
+			extendPro(This.setting,opt)
+			this.obj = document.getElementById(opt.id)
+			this.obj.onmousedown = function(ev){
+				This.funDown(ev)
+			};
+		}
+		Drag.prototype.funDown = function(ev){
+			var This = this;
+			var ev = ev || window.event;
+			this.disX = ev.clientX - this.obj.offsetLeft;
+			this.disY = ev.clientY - this.obj.offsetTop;
+			This.setting.toDown();
+			document.onmousemove = function(){
+				var ev = ev || window.event;
+				This.funMove(ev)
+			}
+			document.onmouseup = function(){
+				var ev = ev || window.event;
+				This.funUp(ev)
+			}
+			return false
+		}
+		Drag.prototype.funMove = function(ev){
+			this.obj.style.left = ev.clientX - this.disX + 'px'
+			this.obj.style.top  = ev.clientY -this.disY + 'px'
+		}
+		Drag.prototype.funUp = function(ev){
+			this.setting.toUp();
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+		
+		function childDrag(id){
+			
+			Drag.call(this,id);
+			console.log(Drag)
+		}
+		extendPro(childDrag.prototype,Drag.prototype);
+		//封装的方法继承函数
+		function extendPro(obj1,obj2){
+			for(var attr in obj2){
+				obj1[attr] = obj2[attr];
+				//console.log(obj1[attr])
+			}
+		}
+		childDrag.prototype.funMove = function(ev){
+			//console.log('xxx')
+			this.obj.style.left = ev.clientX - this.disX + 'px'
+			this.obj.style.top  = ev.clientY -this.disY + 'px'
+		}
+
+		</script>
+</html>	

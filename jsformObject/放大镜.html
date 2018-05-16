@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			
+			#div1{position:relative;width:200px;height:200px}
+			#div1 img{width:100%;height:100%}
+			#div1 span{display:block;width:100px;height:100px;position:absolute;left:0;top:0;
+				background:yellow;display:none;opacity:0.5;filter:alpha(opacity = 0.5)
+			}
+			#mask{width:200px;height:200px;background:red;position:absolute;
+				left:0;top:0;opacity:0;filter:alpha(opacity=0);
+			}
+			#div2{width:500px;height:500px;overflow:hidden;position:absolute;
+				left:250px;top:50px;
+			}
+			#div2 img{position:absolute;left:0;top:0}
+		</style>
+		
+	</head>
+	<body>
+		<div id = 'div1' >
+			<img src='b2.jpg' alt='' title=''>
+			<span></span>
+			<div id ='mask'></div>
+		</div>
+		<div id = 'div2'>
+			<img src='b1.jpg' alt='' title=''>
+		</div>
+	</body>
+	<script>
+	
+		//解决方案 js方法  onmouseenter  onmouseleave(子集不会影响父集)
+		//判断是否嵌套关系
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oSpan = oDiv.getElementsByTagName('span')[0];
+			var oDiv2 = document.getElementById('div2');
+			var oImg  = oDiv2.getElementsByTagName('img')[0]
+			//console.log(oDiv)
+			oDiv.onmouseover = function(){
+				oSpan.style.display = 'block';
+				
+				oDiv.onmousemove = function(){
+					var ev = ev || window.event;
+					var L = ev.clientX  - oDiv.offsetLeft - (oSpan.offsetWidth)/2;
+					var T = ev.clientY - oDiv.offsetTop - (oSpan.offsetHeight)/2;
+					if(L < 0){
+						L = 0
+					}else if(L > oDiv.offsetWidth - oSpan.offsetWidth){
+						L = oDiv.offsetWidth - oSpan.offsetWidth;
+					}
+					if(T < 0){
+						T = 0;
+					}else if(T > oDiv.offsetHeight - oSpan.offsetHeight){
+						T = oDiv.offsetHeight - oSpan.offsetHeight
+					}
+					oSpan.style.left =  L + 'px';
+					oSpan.style.top =  T + 'px';
+					
+					var scaleX = L/(oDiv.offsetWidth - oSpan.offsetWidth)
+					var scaleY = T/(oDiv.offsetHeight - oSpan.offsetHeight)
+				
+					oImg.style.left = - scaleX *(oImg.offsetWidth - oDiv2.offsetWidth) + 'px'
+					oImg.style.top = - scaleY *(oImg.offsetHeight - oDiv2.offsetWidth) + 'px'
+				}
+			}
+			oDiv.onmouseout = function(){
+				oSpan.style.display = 'none'
+			}
+			
+		}
+		
+		//判断两个元素是不是嵌套关系
+		/*function elContains(a,b){
+			return a.contains ? a !=b && a.contains(b) : !! (
+				a.compareDocumentPosition(b) & 16
+			)
+		}*/
+	</script>
+</html>	
