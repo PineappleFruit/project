@@ -11,6 +11,7 @@
 		
 	</head>
 	<body>
+		<input type="button" value="随机" id="input1">
 		<ul id="ul1">
 			<li><img src="photo/1.jpg" /></li>
 			<li><img src="photo/2.jpg" /></li>
@@ -23,11 +24,12 @@
 			<li><img src="photo/4.jpg" /></li>
 		</ul>
 	</body>
+	<script src='move.js'></script>
 	<script>
 		window.onload = function(){
 			var oUl = document.getElementById('ul1');
 			var oLi = oUl.getElementsByTagName('li');
-			
+			var oInput = document.getElementById('input1');
 			var arr = [];
 			var zIndex = 2;
 			for(var i = 0 ; i < oLi.length ; i++){
@@ -47,7 +49,19 @@
 				oLi[i].style.margin = 0
 			}
 			
+			oInput.onclick = function(){
+				var ratter = [0,1,2,3,4,5,6,7,8];
+				ratter.sort(function(a,b){
+					return Math.random() - 0.5
+				})
+				for(var i =0; i < oLi.length ; i++){
+					console.log(ratter[i])
+					startMove(oLi[i] , {left : arr[ratter[i]][0],top : arr[ratter[i]][1]})
+					oLi[i].index = ratter[i]
+				}
+			}
 			for(var i = 0 ; i <oLi.length ; i++){
+				oLi[i].index = i
 				drag(oLi[i]);
 			}
 			function drag(obj){
@@ -63,18 +77,77 @@
 						obj.style.left = ev.clientX - disX + 'px';
 						obj.style.top = ev.clientY - disY + 'px';
 						//将碰到的元素添加边框
-						for(var i = 0; i < oLi.length ;i++){
-							if(pz(obj,oLi[i])){
+						/*for(var i = 0; i < oLi.length ;i++){
+							if(pz(obj,oLi[i]) && obj != oLi[i]){
 								oLi[i].style.border = '2px solid red';
+							}else{
+								oLi[i].style.border = '';
 							}
+						}*/
+						
+						for(var i = 0; i < oLi.length ;i++){
+							oLi[i].style.border = '';
+						}
+						
+						var nL =  nearLi(obj)
+						if(nL){
+							nL.style.border = '2px solid red';
 						}
 					}
 					document.onmouseup = function(){
 						document.onmousedown = null;
-						document.onmousemove = null
+						document.onmousemove = null;
+						var nL =  nearLi(obj)
+						if(nL){
+							var temp ;
+							startMove(nL , {left : arr[obj.index][0],top : arr[obj.index][1]})
+							startMove(obj , {left : arr[nL.index][0],top : arr[nL.index][1]})
+							
+							temp = obj.index;
+							obj.index = nL.index;
+							nL.index = temp
+						}else{
+							return
+						}
+						
 					}
 					return false;
 				}
+			}
+			
+			//找到碰到的最近的元素
+			function nearLi(obj){
+				var value = 999
+				var index = -1
+				
+				for(var i = 0; i < oLi.length ;i++){
+					if(pz(obj,oLi[i]) && obj != oLi[i]){
+						
+						var c = jl(obj,oLi[i])
+							
+						//找到最短的路径并记录
+						if( c < value){
+							value = c
+							index = i
+						}
+					}else{
+						
+					}
+				}
+				
+				if(index != -1){
+					return oLi[index]
+				}else{
+					return false
+				}
+				
+			}
+			
+			//计算距离
+			function jl(obj1,obj2){
+				 var a = obj1.offsetLeft - obj2.offsetLeft
+				 var b = obj1.offsetTop - obj2.offsetTop
+				 return Math.sqrt(a*a + b*b)
 			}
 			
 			//找碰到的元素
@@ -82,12 +155,12 @@
 				var L1 = obj1.offsetLeft;
 				var R1 = obj1.offsetLeft + obj1.offsetWidth;
 				var T1 = obj1.offsetTop ;
-				var B1 = obj1.offsetTop + obj1.offSetHeight;
+				var B1 = obj1.offsetTop + obj1.offsetHeight;
 
 				var L2 = obj2.offsetLeft;
 				var R2 = obj2.offsetLeft + obj2.offsetWidth;
 				var T2 = obj2.offsetTop ;
-				var B2 = obj2.offsetTop + obj2.offSetHeight;
+				var B2 = obj2.offsetTop + obj2.offsetHeight;
 				
 				if( R1<L2 || L1>R2 || B1<T2 || T1>B2){
 					return false
@@ -95,6 +168,7 @@
 					return true
 				}
 			}
+			
 		}
 	</script>
 </html>
