@@ -1,0 +1,14 @@
+@charset "UTF-8";
+//--UI效果图比例变量---
+$r:1/16/(750/320);
+
+//px转rem函数
+@function r($px) {
+  @return $px * $r + rem;
+}
+@import "reset.scss";
+@import "common.scss";
+//@import "grid.scss";
+@import "mxl.scss";
+@import "hlj.scss";
+

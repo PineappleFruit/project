@@ -1,0 +1,70 @@
+@charset "UTF-8";
+//--UI效果图比例变量---
+$r:1/16/(750/320);
+
+//px转rem函数
+@function r($px) {
+  @return $px * $r + rem;
+}
+.result-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 120;
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+.result-dialog-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 121;
+    background: rgba(0, 0, 0, 0.75);
+}
+.result-dialog-con{
+    position: absolute;
+    width: 100%;
+    height: r(500);
+}
+.result-close{
+    position: absolute;
+    display: block;
+    width: r(50);
+    height: r(50);
+    right: r(50);
+    top: r(140);
+    background: url(../images/close2.png) no-repeat;
+    z-index: 10002;
+    background-position: center;
+    background-size: cover;
+}
+.light{
+    position: absolute;
+    left: 50%;
+    top: r(100);
+    transform: translate(-50%,0);
+    width: r(750);
+    height: r(692);
+    background: url(../images/halo2.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 200;
+}
+.shine{
+    position: absolute;
+    left: 50%;
+    top: r(50);
+    transform: translate(-50%,0);
+    width: r(750);
+    height: r(770);
+    background: url(../images/light.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 201;
+}
