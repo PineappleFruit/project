@@ -1,0 +1,196 @@
+@charset "UTF-8";
+//--UI效果图比例变量---
+$r:1/16/(750/320);
+//px转rem函数
+@function r($px) {
+    @return $px * $r+rem;
+}
+
+.result-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 120;
+    opacity: 0.5;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    pointer-events: none;
+    transition: .5s ease-in-out;
+    -webkit-transition: .5s ease-in-out;
+    &.active {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        pointer-events: auto;
+        opacity: 1;
+        .result-letter {
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+.result-dialog-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 121;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.result-dialog-con {
+    position: absolute;
+    width: 100%;
+    height: r(500);
+}
+
+.result-close {
+    position: absolute;
+    display: block;
+    width: r(50);
+    height: r(50);
+    right: r(50);
+    top: r(140);
+    background: url(../images/close2.png) no-repeat;
+    z-index: 10002;
+    background-position: center;
+    background-size: cover;
+}
+
+.light {
+    position: absolute;
+    left: 50%;
+    top: r(100);
+    transform: translate(-50%, 0);
+    width: r(750);
+    height: r(692);
+    background: url(../images/halo2.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 200;
+}
+
+.shine {
+    position: absolute;
+    //  left: 50%;
+    top: r(50);
+    //  transform: translate(-50%,0);
+    width: r(750);
+    height: r(770);
+    background: url(../images/light.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 201;
+    animation: rotate 15s infinite linear;
+    -webkit-animation: rotate 15s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    50% {
+        transform: rotate(180deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.result-show {
+    width: r(559);
+    height: r(443);
+    background: url(../images/bg-back.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 202;
+    top: r(480);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.result-tag {
+    width: r(560);
+    height: r(383);
+    background: url(../images/bg-front-low.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 204;
+    top: r(110);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ad-pic {
+    width: r(433);
+    height: r(200);
+    margin: r(110) auto 0;
+    border-radius: r(10);
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.result-letter {
+    width: r(458);
+    height: r(353);
+    background: url(../images/body.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 203;
+    top: r(-200);
+    left: 50%;
+    margin-left: r(-458/2);
+    opacity: 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transition: .4s .1s ease-in-out;
+}
+
+.reseult-txt {
+    padding-top: r(100);
+    .price {
+        color: #ffde45;
+        span {
+            //          background-color: #e4331c;
+            padding: r(6) r(30);
+            border-radius: r(10);
+            display: inline-block;
+            //          letter-spacing:r(6);
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    a {
+        width: r(506);
+        height: r(102);
+        color: #e42410;
+        background: url(../images/button.png) no-repeat;
+        background-size: contain;
+        display: inline-block;
+        line-height: r(90);
+    }
+}

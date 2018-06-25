@@ -1,0 +1,174 @@
+  <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,viewport-fit=cover">
+		<script src="js/html-size-calculation.js"></script>
+		<link rel="stylesheet" href="css/prize.css" />
+		<script src="js/jquery-2.1.0.js"></script>
+		<title>抽奖-1.1684981684981686</title>
+	</head>
+
+	<body>
+		<div class="circle-box" style="background-image: url(images/bg.webp);">
+			<div class="rule"></div>
+			<a href="#" class="record"></a>
+			<div class="needCredits"><span>今日免费：1 次</span></div>
+			<div class="circle-wrap">
+				<div class="circle-change active"></div>
+				<div class="circle-main">
+					<div class="circle-in">
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/100yuan.webp" alt="" />
+							</div>
+						</div>
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/50yuan.webp" alt="" />
+							</div>
+						</div>
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/liwu.webp" alt="" />
+							</div>
+						</div>
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/100yuan.webp" alt="" />
+							</div>
+						</div>
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/50yuan.webp" alt="" />
+							</div>
+						</div>
+						<div class="prize">
+							<div class="prize-dialog">
+								<img src="images/liwu.webp" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="start"></div>
+				<div class="guide-box">
+					<div class="guide-circle"></div>
+					<div class="guide-hand"></div>
+				</div>
+				<div class="point"></div>
+			</div>
+			<div class="rule-dialog">
+				<div class="rule-dialog-mask"></div>
+				<div class="rule-dialog-content">
+					<div class="rule-dialog-in">
+						<div class="rule-dialog-tit">活动说明</div>
+						<div class="description-scroller">
+
+							<p>开票成功送惊喜，最高可以获得999元补贴哦~</p>
+							<p>活动说明：参与活动即有机会获得幸运奖，每天8次免费抽奖机会。此活动为概率中奖，奖品数量有限，祝好运。</p>
+							<p>惊喜一：999元红包</p>
+							<p>惊喜二：100元红包</p>
+							<p>惊喜三：50元红包</p>
+							<p>惊喜四：10元红包</p>
+							<p>惊喜五：幸运奖</p>
+							<p>－－－－－－－－－－－－－－－<br></p>
+							<p>重要声明</p>
+							<p>1、实物类奖品将在活动结束后5-10个工作日安排发货，请耐心等待</p>
+							<p>2、优惠券类奖品的使用规则详见每个优惠券的介绍页</p>
+							<p>3、请兑换后仔细阅读使用流程，如有疑问，可直接联系客服专线：400-080-6659（工作日9:00至18:00）</p>
+							<p>4、通过非法途径获得奖品的，主办方有权不提供奖品</p>
+						</div>
+					</div>
+					<div class="rule-dialog-close"></div>
+				</div>
+			</div>
+			<div class="result-dialog">
+				<div class="result-dialog-mask"></div>
+				<div class="result-dialog-con">
+					<span class="result-close"></span>
+					<div class="light">
+							<div class="shine"></div>
+					</div>
+					<div class="result-show">
+						<div class="result-tag">
+							<div class="reseult-txt tx-c">
+								<p class="fz28 cff">恭喜你获得了</p>
+								<h3 class="price fz30 mt10"><span>马上金融</span></h3>
+								<a href="javascript:;" class="fz32 tx-c mt20">免费领取</a>
+							</div>
+						</div>
+						<div class="result-letter">
+							<div class="ad-pic">
+								<img src="images/ad-pic.jpg" alt="" />
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="js/jQueryRotate.js"></script>
+<script>
+	$(function() {
+		//		setInterval(function() {
+		//			$(".circle-change").toggleClass("active")
+		//		}, 600)
+		$(".rule").on("touchend", function() {
+			$(".rule-dialog").addClass("active")
+		})
+		$(".rule").on("touchend", function() {
+			$(".rule-dialog").addClass("active")
+		})
+		$(".rule-dialog-mask,.rule-dialog-close").on("touchend", function() {
+			$(".rule-dialog").removeClass("active");
+			return false;
+		})
+		$(".result-dialog-mask,.result-close").on("touchend", function() {
+			$(".result-dialog").removeClass("active");
+			$(".start").removeClass("active")
+			return false;
+		})
+	})
+</script>
+<script>
+	$(function() {
+		var angle = 0;
+		var Time;
+		var curAngle = 0;
+		var isRotating = false;
+		Time = setInterval(rotateFn, 50);
+		function rotateFn() {
+			angle += 1;
+			$(".circle-in").rotate(angle);
+		}
+
+		$(".start").click(function() {
+			//targetAngle->中奖角度
+			var targetAngle = 150;
+			circleRotate(targetAngle)
+		})
+
+		function circleRotate(targetAngle) {
+			$(".guide-box,.start").addClass("active");
+			if(isRotating) {
+				return false
+			}
+			clearInterval(Time)
+			curAngle = angle % 360;
+			isRotating = true
+			$(".circle-in").rotate({
+				angle: curAngle,
+				duration: 3000,
+				animateTo: targetAngle + 1080,
+				callback: function() {
+					isRotating = false
+					$(".result-dialog").addClass("active")
+				},
+			});
+		}
+	})
+</script>
